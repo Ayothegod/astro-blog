@@ -1,0 +1,17 @@
+---
+
+---
+
+
+<footer>
+    <small>
+        Copyright &copy; <span id="copyright"></span> | All rights reserved
+    </small>
+</footer>
+
+<script>
+    const date = document.querySelector("#copyright")
+    date ? date.textContent = new Date().getFullYear().toString()  : null
+</script>
+
+
