@@ -1,0 +1,42 @@
+---
+interface Props {
+  text: string;
+  href: string;
+  style?: string;
+  icon?: {
+    name: string;
+    side: "left" | "right";
+  };
+  isFilled: boolean;
+  borderVisible: boolean;
+  classes?: string;
+}
+
+const {
+  text,
+  href,
+  style,
+  icon,
+  isFilled = true,
+  borderVisible = false,
+  classes,
+  ...rest
+} = Astro.props as Props;
+---
+
+<a
+  href={href}
+  class:list={[style, classes, { "": isFilled, "": borderVisible }]}
+  {...rest}
+>
+  {
+    icon &&
+      icon.side === "left" &&
+      "The left icon"
+      // <Icon name={icon.name} height="25" width="24"/>
+  }
+
+  <span>{text}</span>
+
+  {icon && icon.side === "right" && "The right icon"}
+</a>
