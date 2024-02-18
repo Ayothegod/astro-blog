@@ -1,25 +1,28 @@
 ---
-import navData from "../data/navData"
-// console.log(navData);
-
+import navData from "../data/navData";
+import Link from "./Link.astro";
 ---
 
 <nav>
-    <div class="shadow-globalshadow h-12 flex items-center justify-between px-2"> 
-        <a href="/" class="text-2xl font-mono font-extrabold">
-            Logo
-        </a>
+  <div class="shadow-globalshadow h-12 flex items-center justify-between px-2">
+    <a href="/" class="text-2xl font-mono font-extrabold"> Logo</a>
 
-        <ul class="">
-            {
-                navData.map(item => (
-                    <a href={`${item.path}`}>{item.name}</a>
-                ))
-            }
-        </ul>
-    </div>
+    <ul class="space-x-4">
+      {
+        navData.map((item) => (
+            <Link
+              text={`${item.name}`}
+              href={`${item.path}`}
+              style="bg-black text-white hover:bg-gray-700"
+              classes="font-bold py-1 px-2 rounded-sm"
+              data-navLink
+            />
+        ))
+      }
+    </ul>
+  </div>
 </nav>
 
-
-
-
+<script>
+    import "../js/nav"
+</script>

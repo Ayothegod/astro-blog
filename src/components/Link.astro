@@ -1,15 +1,16 @@
 ---
+// <Icon name={icon.name} height="25" width="24"/>
 interface Props {
   text: string;
   href: string;
-  style?: string;
+  style: string;
   icon?: {
     name: string;
     side: "left" | "right";
   };
-  isFilled: boolean;
-  borderVisible: boolean;
-  classes?: string;
+  isFilled?: boolean;
+  borderVisible?: boolean;
+  classes: string;
 }
 
 const {
@@ -29,12 +30,7 @@ const {
   class:list={[style, classes, { "": isFilled, "": borderVisible }]}
   {...rest}
 >
-  {
-    icon &&
-      icon.side === "left" &&
-      "The left icon"
-      // <Icon name={icon.name} height="25" width="24"/>
-  }
+  {icon && icon.side === "left" && "The left icon"}
 
   <span>{text}</span>
 
