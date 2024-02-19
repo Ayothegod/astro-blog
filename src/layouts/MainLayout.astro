@@ -1,26 +1,28 @@
 ---
 interface Props {
   title: string;
-  description: string
+  description: string;
 }
 
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
-import MainHead from "./MainHead.astro"
-const {title, description} = Astro.props
+import MainHead from "./MainHead.astro";
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
-	<MainHead {title} description={description}/>
-	<body>
-  <Nav/>
-		<slot/>
-    <Footer/>
-	</body>
+  <MainHead {title} description={description} />
+  <body class="max-w-6xl mx-auto">
+    <Nav />
+    <div class="px-2">
+      <slot />
+    </div>
+    <Footer />
+  </body><style is:global>
+    .gshadow {
+      box-shadow:
+        2px 2px 5px rgba(0, 0, 0, 0.1),
+        -2px -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </html>
-
-<style is:global>
-  .gshadow {
-    box-shadow: 2px 2px 5px rgba(0,0,0,.1), -2px -2px 5px rgba(0,0,0,.1);
-  }
-</style>
