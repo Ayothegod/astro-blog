@@ -1,0 +1,20 @@
+---
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Page Not Found" description="Building a blog using astro.">
+  <main class="bg-gray-100/20 height flex flex-col items-center justify-center gap-4">
+    <div>
+      <h1 class="text-3xl font-bold">Welp, this is awkward!</h1>
+      <p>We seem to have misplaced something...</p>
+    </div>
+    <Link text="Go Home" style="" classes="font-bold" href="/" />
+  </main>
+</MainLayout>
+
+<style is:global>
+    .height {
+        min-height: calc(100vh - 64px);
+    }
+</style>
