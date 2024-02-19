@@ -1,0 +1,35 @@
+---
+import Link from "../components/Link.astro";
+import MainLayout from "./MainLayout.astro";
+
+const {frontmatter} = Astro.props
+// console.log(frontmatter);
+
+const {title, description, draft, category, date, author, image} = frontmatter
+
+---
+
+<MainLayout title={title} description={description}>
+    <!-- Header for each post -->
+    <header>
+        <div class=" my-10 gap-2 flex flex-col items-center justify-center">
+            <small class="flex ">
+                <Link classes="font-semibold" href={`/category/${category}`} style="bg-blue-600" text={category}/>
+            </small>
+
+            <h2 class="font-bold text-2xl text-center">{title}</h2>
+            <p>by  <a href={`/category/${author}`} class="underline">{author}</a> • {date}</p>
+        </div>
+        <img src="" alt="">
+    </header>
+
+    <div>
+        <!-- content -->
+        <div>
+            <slot/>
+        </div>
+        
+        <!-- sidebar -->
+        <div></div>
+    </div>
+</MainLayout>
