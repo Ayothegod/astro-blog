@@ -27,7 +27,7 @@ const {
 
 <a
   href={href}
-  class:list={[style, classes, { "": isFilled, "": borderVisible }]}
+  class:list={["bg-black text-white hover:bg-gray-700 py-1 px-2 rounded-sm", style, classes, { "": isFilled, "": borderVisible }, ]}
   {...rest}
 >
   {icon && icon.side === "left" && "The left icon"}

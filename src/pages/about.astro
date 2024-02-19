@@ -1,10 +1,35 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 // public\images\wildlife-unsplash.jpg
 ---
 
 <MainLayout title="About" description="Building a blog using astro.">
-  <section class="" aria-label="About Me">
-    <img src="/images/wildlife-unsplash.jpg" alt="placeholder-image" class="h-60 w-48">
+  <section class="my-10" aria-label="About Me">
+    <div>
+      <img
+        src="/images/wildlife-unsplash.jpg"
+        alt="placeholder-image"
+        class="h-60 w-48 rounded-lg"
+      />
+    </div>
+
+    <div class="mt-10">
+      <h2 class="text-2xl font-bold">My Blog</h2>
+      <p class="my-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
+        reprehenderit quidem perspiciatis quia doloribus delectus voluptate
+        magni, recusandae voluptatibus, ex repudiandae! Similique mollitia
+        repudiandae, ex facere esse quis a sequi assumenda quam, incidunt
+        tenetur modi! Voluptas optio impedit laboriosam doloremque?
+      </p>
+
+      <Link
+        href="mailto:heyadebisiayomide@gmail.com"
+        style=""
+        classes="font-bold"
+        text="Contact Me"
+      />
+    </div>
   </section>
 </MainLayout>
