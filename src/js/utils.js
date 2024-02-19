@@ -1,4 +1,3 @@
-const text = "Hello";
 
 export function slugify(text) {
   return text
@@ -7,6 +6,10 @@ export function slugify(text) {
     .replace(/\s+/g, "-")
     .replace(/[^\w-]+/g, "")
     .replace(/--+/g, "-")
-    .replace(/^+/, "")
+    .replace(/^-+/, "")
     .replace(/-+$/, "");
+}
+
+export function formatDate(date) {
+    return new Date(date).toLocaleDateString()
 }

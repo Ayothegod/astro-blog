@@ -1,0 +1,11 @@
+---
+const { post } = Astro.props;
+// console.log(post.frontmatter);
+// const { title, description, draft, category, date, author, image } = post.frontmatter
+---
+
+<main>
+  <p>{post.frontmatter.title}</p>
+
+  <p>{JSON.stringify(post.frontmatter, null, 2)}</p>
+</main>

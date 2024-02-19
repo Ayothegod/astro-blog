@@ -1,16 +1,17 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro"
 
+const allPosts = await Astro.glob("./*.md")
+import PostCard from "../../components/PostCard.astro"
 ---
 
 <MainLayout title="My Astro Blog" description="Building a blog using astro.">
-  <main class="bg-gray-100/20 min-h-screen flex items-center justify-center">
-    Blog Page
+  <main class="bg-gray-100/20 height flex items-center justify-center">
 
-    <ul>
-      <li>
-        <a href="./blog/post-1" class="underline">Post 1</a>
-      </li>
-    </ul>
+    {
+      allPosts.map(post => (
+        <PostCard post={post}/>
+      ))
+    }
   </main>
 </MainLayout>
