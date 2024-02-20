@@ -1,11 +1,47 @@
 ---
-const { post } = Astro.props;
-// console.log(post.frontmatter);
-// const { title, description, draft, category, date, author, image } = post.frontmatter
+import { slugify, formatDate } from "../js/utils";
+import Link from "./Link.astro";
+
+const { post, url } = Astro.props;
+const { title, description, category, date, author, image } = post.frontmatter;
+console.log(url);
 ---
 
-<main>
-  <p>{post.frontmatter.title}</p>
+<main class="border border-gray-300 rounded-sm p-2">
+  <Link
+    classes="ml-4 text-sm font-bold"
+    href={`/category/${slugify(category)}/`}
+    style=""
+    text={category}
+  />
+  <a href={url}>
+  <div class="relative">
+    <div class="absolute inset-0 backdrop-brightness-75"></div>
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="w-full h-48 sm:h-60 my-2 rounded-sm object-cover object-center"
+      />
+    </div>
+  </a>
 
-  <p>{JSON.stringify(post.frontmatter, null, 2)}</p>
+  <div class="mx-4 flex flex-col items-start gap-2">
+    <h2 class="font-bold text-2xl">{title}</h2>
+    <p class="text-sm">
+      by <a href={`/author/${slugify(author)}/`} class="underline"
+        >{slugify(author)}</a
+      > • {formatDate(date)}
+    </p>
+    <p class="font-medium">{description}</p>
+
+    <Link
+      classes="font-bold "
+      href={url}
+      style="bg-blue-600 hover:bg-blue-500 "
+      text="Read Post"
+    />
+  </div>
+
+  <!-- <p>{post.frontmatter.title}</p> -->
+  <!-- <p>{JSON.stringify(post.frontmatter, null, 2)}</p> -->
 </main>

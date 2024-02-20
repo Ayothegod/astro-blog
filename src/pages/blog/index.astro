@@ -3,15 +3,19 @@ import MainLayout from "../../layouts/MainLayout.astro"
 
 const allPosts = await Astro.glob("./*.md")
 import PostCard from "../../components/PostCard.astro"
+// console.log(allPosts[0]?.file);
+
 ---
 
 <MainLayout title="My Astro Blog" description="Building a blog using astro.">
-  <main class="bg-gray-100/20 height flex items-center justify-center">
-
-    {
-      allPosts.map(post => (
-        <PostCard post={post}/>
-      ))
-    }
+  <main class="bg-gray-100/20 height my-4">
+    <h1 class="text-2xl font-bold">New Blog Posts</h1>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+      {
+        allPosts.map(post => (
+          <PostCard post={post} url={post.url}/>
+        ))
+      }
+    </div>
   </main>
 </MainLayout>
