@@ -5,3 +5,15 @@ navLinks.forEach(link => {
         link.setAttribute("aria-current", "page")
     }
 })
+
+// TODO: work this!!!
+
+// FIXME: work on this?
+
+// ERROR: Checkthis later
+
+// TODO: 
+
+// DEBUG:
+
+// NOTE:
